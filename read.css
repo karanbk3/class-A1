@@ -1,0 +1,911 @@
+
+/* ==========================================
+   READ-X | PUBLICATION & READING DESIGN
+   Modern, Clean and Responsive Interface
+========================================== */
+
+
+/* 1. GLOBAL SETTINGS */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #6478e8;
+    --primary-dark: #4f63d1;
+
+    --text-main: #172033;
+    --text-secondary: #778196;
+
+    --background: #f4f6fc;
+
+    --glass: rgba(255, 255, 255, 0.72);
+    --glass-border: rgba(255, 255, 255, 0.85);
+
+    --shadow: 0 15px 45px rgba(40, 55, 100, 0.08);
+
+    --radius: 22px;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    min-height: 100vh;
+    overflow-x: hidden;
+
+    font-family: "Inter", sans-serif;
+
+    color: var(--text-main);
+
+    background:
+        linear-gradient(135deg, #f5f7ff, #edf1fb);
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+
+/* 2. BACKGROUND EFFECTS */
+
+.background-glow {
+    position: fixed;
+    z-index: -1;
+
+    width: 400px;
+    height: 400px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+    opacity: 0.35;
+
+    pointer-events: none;
+}
+
+.glow-one {
+    top: -150px;
+    left: -120px;
+
+    background: #a8b6ff;
+}
+
+.glow-two {
+    right: -150px;
+    bottom: -150px;
+
+    background: #c4b5fd;
+}
+
+
+/* 3. HEADER */
+
+.page-header {
+    width: 100%;
+    max-width: 1200px;
+
+    margin: auto;
+    padding: 28px 35px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    color: var(--text-main);
+
+    text-decoration: none;
+
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1.5px;
+}
+
+.logo span {
+    color: var(--primary);
+}
+
+.header-caption {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    font-weight: 500;
+}
+
+
+/* 4. MAIN CONTAINER */
+
+.main-container {
+    width: 100%;
+    max-width: 1100px;
+
+    margin: auto;
+    padding: 65px 30px 110px;
+}
+
+
+/* 5. PAGE INTRODUCTION */
+
+.page-intro {
+    margin-bottom: 45px;
+
+    animation: fadeUp 0.6s ease both;
+}
+
+.eyebrow {
+    display: inline-block;
+
+    margin-bottom: 17px;
+
+    color: var(--primary);
+
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.page-intro h1 {
+    margin-bottom: 15px;
+
+    color: var(--text-main);
+
+    font-size: clamp(35px, 5vw, 55px);
+    font-weight: 800;
+    letter-spacing: -2.5px;
+    line-height: 1.15;
+}
+
+.page-intro h1 span {
+    color: var(--primary);
+}
+
+.page-intro p {
+    color: var(--text-secondary);
+
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+
+/* 6. SEARCH SECTION */
+
+.search-section {
+    margin-bottom: 55px;
+}
+
+.search-box {
+    width: 100%;
+    max-width: 580px;
+
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    padding: 17px 20px;
+
+    border: 1px solid var(--glass-border);
+    border-radius: 16px;
+
+    background: var(--glass);
+
+    box-shadow: 0 8px 30px rgba(40, 55, 100, 0.05);
+
+    transition: 0.25s ease;
+}
+
+.search-box:focus-within {
+    border-color: rgba(100, 120, 232, 0.5);
+
+    box-shadow:
+        0 0 0 4px rgba(100, 120, 232, 0.08),
+        0 8px 30px rgba(40, 55, 100, 0.05);
+}
+
+.search-box svg {
+    width: 20px;
+    height: 20px;
+
+    fill: none;
+    stroke: var(--text-secondary);
+    stroke-width: 1.8;
+
+    flex-shrink: 0;
+}
+
+.search-box input {
+    width: 100%;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: var(--text-main);
+
+    font-size: 14px;
+}
+
+.search-box input::placeholder {
+    color: #a0a8b8;
+}
+
+
+/* 7. PUBLICATION SECTION */
+
+.publications-section {
+    width: 100%;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    color: var(--text-main);
+
+    font-size: 21px;
+    font-weight: 750;
+    letter-spacing: -0.5px;
+}
+
+#publicationCount {
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* 8. PUBLICATION GRID */
+
+.publication-list {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 22px;
+}
+
+
+/* 9. PUBLICATION CARD */
+
+.publication-card {
+    position: relative;
+
+    min-width: 0;
+    padding: 27px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius);
+
+    background: var(--glass);
+
+    box-shadow: var(--shadow);
+
+    cursor: pointer;
+
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+
+    animation: fadeUp 0.5s ease both;
+}
+
+.publication-card:hover {
+    transform: translateY(-6px);
+
+    border-color: rgba(100, 120, 232, 0.3);
+
+    box-shadow:
+        0 20px 50px rgba(40, 55, 100, 0.12);
+}
+
+.publication-card:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+}
+
+
+/* 10. PUBLICATION INFORMATION */
+
+.publication-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+
+    margin-bottom: 19px;
+
+    color: var(--text-secondary);
+
+    font-size: 11px;
+}
+
+.author-name {
+    color: #53617a;
+    font-weight: 700;
+}
+
+.meta-dot {
+    color: #b2bac9;
+}
+
+.publication-time {
+    color: #929bad;
+}
+
+
+/* 11. PUBLICATION TITLE */
+
+.publication-title {
+    margin-bottom: 13px;
+
+    color: var(--text-main);
+
+    font-size: 21px;
+    font-weight: 750;
+    line-height: 1.4;
+    letter-spacing: -0.5px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* 12. PUBLICATION DESCRIPTION */
+
+.publication-description {
+    margin-bottom: 20px;
+
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.8;
+
+    display: -webkit-box;
+    line-clamp: 3;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+
+    overflow: hidden;
+}
+
+
+/* 13. TOPIC */
+
+.publication-topic {
+    display: inline-block;
+
+    margin-top: auto;
+    padding: 8px 13px;
+
+    border-radius: 30px;
+
+    background: rgba(100, 120, 232, 0.09);
+
+    color: var(--primary-dark);
+
+    font-size: 10px;
+    font-weight: 750;
+}
+
+
+/* 14. READ MORE */
+
+.read-more {
+    display: inline-block;
+
+    margin-top: 19px;
+
+    color: var(--primary);
+
+    font-size: 12px;
+    font-weight: 750;
+
+    transition: 0.2s ease;
+}
+
+.publication-card:hover .read-more {
+    color: var(--primary-dark);
+    transform: translateX(4px);
+}
+
+
+/* 15. EMPTY STATE */
+
+.empty-state {
+    padding: 60px 20px;
+
+    text-align: center;
+
+    border: 1px dashed rgba(120, 135, 170, 0.3);
+    border-radius: var(--radius);
+
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.empty-icon {
+    margin-bottom: 15px;
+
+    color: var(--primary);
+
+    font-size: 42px;
+}
+
+.empty-state h3 {
+    margin-bottom: 10px;
+
+    color: var(--text-main);
+
+    font-size: 19px;
+}
+
+.empty-state p {
+    color: var(--text-secondary);
+
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* 16. LOADING MESSAGE */
+
+.loading-message {
+    grid-column: 1 / -1;
+
+    padding: 40px 15px;
+
+    color: var(--text-secondary);
+
+    text-align: center;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   17. FULL ARTICLE READING PAGE
+========================================== */
+
+.article-view {
+    width: 100%;
+    max-width: 850px;
+
+    margin: 20px auto 60px;
+
+    animation: fadeUp 0.4s ease both;
+}
+
+
+/* 18. BACK BUTTON */
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    margin-bottom: 25px;
+    padding: 12px 19px;
+
+    border: 1px solid rgba(100, 120, 232, 0.2);
+    border-radius: 30px;
+
+    background: rgba(255, 255, 255, 0.8);
+
+    color: var(--primary-dark);
+
+    font-size: 13px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 5px 20px rgba(40, 55, 100, 0.04);
+
+    transition: 0.25s ease;
+}
+
+.back-button:hover {
+    transform: translateX(-4px);
+
+    background: #ffffff;
+
+    box-shadow: 0 8px 25px rgba(40, 55, 100, 0.1);
+}
+
+.back-button:focus-visible {
+    outline: 3px solid var(--primary);
+    outline-offset: 4px;
+}
+
+
+/* 19. ARTICLE CONTAINER */
+
+.article-content {
+    width: 100%;
+
+    padding: clamp(25px, 5vw, 55px);
+
+    border: 1px solid var(--glass-border);
+    border-radius: 26px;
+
+    background: rgba(255, 255, 255, 0.78);
+
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+
+    box-shadow: 0 20px 60px rgba(40, 55, 100, 0.08);
+}
+
+
+/* 20. ARTICLE TITLE */
+
+.full-article-title {
+    margin-bottom: 23px;
+
+    color: var(--text-main);
+
+    font-size: clamp(29px, 5vw, 45px);
+    font-weight: 800;
+    line-height: 1.25;
+    letter-spacing: -1.7px;
+
+    overflow-wrap: anywhere;
+}
+
+
+/* 21. ARTICLE META */
+
+.full-article-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+
+    margin-bottom: 22px;
+
+    color: var(--text-secondary);
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* 22. ARTICLE TOPIC */
+
+.full-article-topic {
+    display: inline-block;
+
+    margin-bottom: 28px;
+    padding: 9px 15px;
+
+    border-radius: 30px;
+
+    background: rgba(100, 120, 232, 0.1);
+
+    color: var(--primary-dark);
+
+    font-size: 11px;
+    font-weight: 750;
+}
+
+
+/* 23. ARTICLE DESCRIPTION */
+
+.full-article-description {
+    margin-bottom: 30px;
+    padding-bottom: 27px;
+
+    border-bottom: 1px solid rgba(125, 140, 175, 0.2);
+
+    color: #66738b;
+
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.9;
+}
+
+
+/* 24. FULL ARTICLE BODY */
+
+.full-article-body {
+    color: #354157;
+
+    font-size: 16px;
+    line-height: 2;
+
+    overflow-wrap: anywhere;
+}
+
+.full-article-body p {
+    margin-bottom: 24px;
+
+    white-space: pre-wrap;
+}
+
+.full-article-body p:last-child {
+    margin-bottom: 0;
+}
+
+
+/* 25. FOOTER */
+
+.page-footer {
+    padding: 30px 20px 110px;
+
+    color: #929bad;
+
+    text-align: center;
+
+    font-size: 12px;
+    font-weight: 500;
+}
+
+
+/* ==========================================
+   26. FLOATING NAVIGATION
+========================================== */
+
+.floating-nav {
+    position: fixed;
+    z-index: 100;
+
+    left: 50%;
+    bottom: 22px;
+
+    transform: translateX(-50%);
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    padding: 9px;
+
+    border: 1px solid rgba(255, 255, 255, 0.85);
+    border-radius: 50px;
+
+    background: rgba(255, 255, 255, 0.85);
+
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+
+    box-shadow: 0 12px 40px rgba(35, 50, 90, 0.13);
+
+    transition:
+        opacity 0.3s ease,
+        transform 0.3s ease;
+}
+
+.floating-nav.nav-hidden {
+    opacity: 0;
+    pointer-events: none;
+
+    transform: translate(-50%, 100px);
+}
+
+.nav-item {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    padding: 12px 17px;
+
+    border-radius: 30px;
+
+    color: var(--text-secondary);
+
+    text-decoration: none;
+
+    font-size: 12px;
+    font-weight: 650;
+
+    transition: 0.25s ease;
+}
+
+.nav-item:hover {
+    background: rgba(100, 120, 232, 0.08);
+    color: var(--primary);
+}
+
+.nav-item.active {
+    background: var(--primary);
+
+    color: #ffffff;
+
+    box-shadow: 0 5px 15px rgba(100, 120, 232, 0.25);
+}
+
+.nav-icon {
+    font-size: 17px;
+    line-height: 1;
+}
+
+
+/* ==========================================
+   27. ANIMATIONS
+========================================== */
+
+@keyframes fadeUp {
+
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ==========================================
+   28. TABLET RESPONSIVENESS
+========================================== */
+
+@media (max-width: 800px) {
+
+    .main-container {
+        padding: 50px 25px 100px;
+    }
+
+    .publication-list {
+        grid-template-columns: 1fr;
+        gap: 17px;
+    }
+
+    .publication-card {
+        padding: 24px;
+    }
+
+}
+
+
+/* ==========================================
+   29. MOBILE RESPONSIVENESS
+========================================== */
+
+@media (max-width: 600px) {
+
+    .page-header {
+        padding: 22px 20px;
+    }
+
+    .logo {
+        font-size: 22px;
+    }
+
+    .header-caption {
+        font-size: 11px;
+    }
+
+    .main-container {
+        padding: 45px 18px 100px;
+    }
+
+    .page-intro {
+        margin-bottom: 35px;
+    }
+
+    .page-intro h1 {
+        font-size: 36px;
+        letter-spacing: -1.8px;
+    }
+
+    .page-intro p {
+        font-size: 13px;
+    }
+
+    .search-section {
+        margin-bottom: 42px;
+    }
+
+    .search-box {
+        padding: 15px 16px;
+    }
+
+    .section-heading h2 {
+        font-size: 18px;
+    }
+
+    .publication-card {
+        padding: 22px;
+        border-radius: 19px;
+    }
+
+    .publication-title {
+        font-size: 19px;
+    }
+
+    .publication-description {
+        font-size: 12px;
+    }
+
+    .article-view {
+        margin-top: 10px;
+    }
+
+    .article-content {
+        padding: 27px 21px;
+        border-radius: 20px;
+    }
+
+    .full-article-title {
+        font-size: 30px;
+        letter-spacing: -1px;
+    }
+
+    .full-article-description {
+        font-size: 14px;
+        line-height: 1.85;
+    }
+
+    .full-article-body {
+        font-size: 15px;
+        line-height: 1.9;
+    }
+
+    .back-button {
+        margin-bottom: 18px;
+    }
+
+    .floating-nav {
+        bottom: 15px;
+        gap: 3px;
+        padding: 7px;
+    }
+
+    .nav-item {
+        gap: 5px;
+        padding: 11px 13px;
+        font-size: 11px;
+    }
+
+}
+
+
+/* ==========================================
+   30. SMALL MOBILE DEVICES
+========================================== */
+
+@media (max-width: 380px) {
+
+    .header-caption {
+        display: none;
+    }
+
+    .page-intro h1 {
+        font-size: 31px;
+    }
+
+    .article-content {
+        padding: 23px 17px;
+    }
+
+    .nav-item {
+        padding: 10px 11px;
+        font-size: 10px;
+    }
+
+}

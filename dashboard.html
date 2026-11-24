@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>READ-X | Admin Dashboard</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="dashboard.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+
+<body>
+<div class="dashboard-layout">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-brand">
+            <a href="../home.html">READ<span>-X</span></a>
+            <small>ADMIN CONTROL CENTER</small>
+        </div>
+
+        <nav class="sidebar-menu">
+            <p class="menu-heading">MAIN MENU</p>
+
+            <button class="menu-item active" data-section="overview">
+                <i data-lucide="layout-dashboard"></i> Overview
+            </button>
+
+            <button class="menu-item" data-section="publications">
+                <i data-lucide="book-open"></i> Publications
+                <span class="menu-count" id="pendingCount">0</span>
+            </button>
+
+            <button class="menu-item" data-section="announcements">
+                <i data-lucide="megaphone"></i> Announcements
+            </button>
+
+            <button class="menu-item" data-section="advertisements">
+                <i data-lucide="image"></i> Advertisements
+            </button>
+
+            <button class="menu-item" data-section="people">
+                <i data-lucide="users"></i> New People
+            </button>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <div class="admin-profile">
+                <div class="profile-avatar">A</div>
+                <div class="profile-info">
+                    <strong>Administrator</strong>
+                    <small>READ-X Admin</small>
+                </div>
+            </div>
+
+            <button class="logout-button" id="logoutButton">
+                <i data-lucide="log-out"></i> Log out
+            </button>
+        </div>
+    </aside>
+
+    <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div class="topbar-left">
+                <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
+                    <i data-lucide="menu"></i>
+                </button>
+
+                <div>
+                    <h1 id="pageTitle">Overview</h1>
+                    <p id="pageSubtitle">Welcome to your READ-X control center.</p>
+                </div>
+            </div>
+
+            <div class="topbar-right">
+                <div class="admin-status">
+                    <span class="status-dot"></span> Admin active
+                </div>
+
+                <a class="website-link" href="../home.html" target="_blank">
+                    <i data-lucide="external-link"></i>
+                    <span>View Website</span>
+                </a>
+            </div>
+        </header>
+
+        <div class="dashboard-content">
+
+            <!-- OVERVIEW -->
+            <section class="dashboard-section active" id="overview">
+                <div class="welcome-section">
+                    <div>
+                        <span class="section-eyebrow">READ-X ADMINISTRATION</span>
+                        <h2>Welcome back!</h2>
+                        <p>Manage publications and updates from one place.</p>
+                    </div>
+                    <div class="today-date" id="todayDate"></div>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span>Published</span>
+                            <div class="stat-icon publications-icon"><i data-lucide="book-open"></i></div>
+                        </div>
+                        <h3 id="totalPublications">0</h3>
+                        <p>Published publications</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span>Pending review</span>
+                            <div class="stat-icon pending-icon"><i data-lucide="clock"></i></div>
+                        </div>
+                        <h3 id="totalPending">0</h3>
+                        <p>Waiting for approval</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span>Announcements</span>
+                            <div class="stat-icon announcements-icon"><i data-lucide="megaphone"></i></div>
+                        </div>
+                        <h3 id="totalAnnouncements">0</h3>
+                        <p>All announcements</p>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-top">
+                            <span>Advertisements</span>
+                            <div class="stat-icon visitors-icon"><i data-lucide="image"></i></div>
+                        </div>
+                        <h3 id="totalAdvertisements">0</h3>
+                        <p>Active advertisements</p>
+                    </div>
+                </div>
+
+                <div class="overview-grid">
+                    <div class="dashboard-card">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Recent Publications</h3>
+                                <p>Latest community submissions</p>
+                            </div>
+                            <button class="text-action" data-section="publications">View all</button>
+                        </div>
+                        <div class="recent-list" id="recentPublications">
+                            <div class="empty-placeholder">Loading publications...</div>
+                        </div>
+                    </div>
+
+                    <div class="dashboard-card">
+                        <div class="card-heading">
+                            <div>
+                                <h3>Quick Actions</h3>
+                                <p>Manage your website</p>
+                            </div>
+                        </div>
+
+                        <button class="quick-action" data-section="publications">
+                            <i data-lucide="book-open"></i>
+                            <span><strong>Review publications</strong><small>Approve or reject submissions</small></span>
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+
+                        <button class="quick-action" data-section="announcements">
+                            <i data-lucide="megaphone"></i>
+                            <span><strong>Add announcement</strong><small>Share an important update</small></span>
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+
+                        <button class="quick-action" data-section="advertisements">
+                            <i data-lucide="image"></i>
+                            <span><strong>Add advertisement</strong><small>Show a brand on READ-X</small></span>
+                            <i data-lucide="chevron-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- PUBLICATIONS -->
+            <section class="dashboard-section" id="publications">
+                <div class="section-header">
+                    <div>
+                        <span class="section-eyebrow">COMMUNITY CONTENT</span>
+                        <h2>Publications</h2>
+                        <p>Review and manage submitted publications.</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="management-toolbar">
+                        <input type="search" id="publicationSearch" placeholder="Search title, author or topic...">
+                        <select id="publicationFilter">
+                            <option value="all">All publications</option>
+                            <option value="pending">Pending</option>
+                            <option value="published">Published</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+                    <div id="publicationManagement">
+                        <div class="empty-placeholder">Loading publications...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ANNOUNCEMENTS -->
+            <section class="dashboard-section" id="announcements">
+                <div class="section-header">
+                    <div>
+                        <span class="section-eyebrow">WEBSITE UPDATES</span>
+                        <h2>Announcements</h2>
+                        <p>Create announcements for READ-X visitors.</p>
+                    </div>
+                    <button class="primary-button" id="addAnnouncement">
+                        <i data-lucide="plus"></i> Add announcement
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="management-toolbar">
+                        <input type="search" id="announcementSearch" placeholder="Search announcements...">
+                        <select id="announcementFilter">
+                            <option value="all">All announcements</option>
+                            <option value="published">Published</option>
+                            <option value="draft">Drafts</option>
+                        </select>
+                    </div>
+                    <div class="content-grid" id="announcementManagement">
+                        <div class="empty-placeholder">Loading announcements...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ADVERTISEMENTS -->
+            <section class="dashboard-section" id="advertisements">
+                <div class="section-header">
+                    <div>
+                        <span class="section-eyebrow">BRAND PARTNERS</span>
+                        <h2>Advertisements</h2>
+                        <p>Add a brand name, logo or photo, and a short description.</p>
+                    </div>
+                    <button class="primary-button" id="addAdvertisement">
+                        <i data-lucide="plus"></i> Add advertisement
+                    </button>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="content-grid" id="advertisementManagement">
+                        <div class="empty-placeholder">Loading advertisements...</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- NEW PEOPLE -->
+            <section class="dashboard-section" id="people">
+                <div class="section-header">
+                    <div>
+                        <span class="section-eyebrow">COMMUNITY</span>
+                        <h2>New People</h2>
+                        <p>Recently appearing publication authors.</p>
+                    </div>
+                </div>
+
+                <div class="dashboard-card">
+                    <div class="management-toolbar">
+                        <input type="search" id="peopleSearch" placeholder="Search by person's name...">
+                    </div>
+                    <div id="peopleManagement">
+                        <div class="empty-placeholder">Loading people...</div>
+                    </div>
+                </div>
+            </section>
+
+            <footer class="dashboard-footer">
+                <span>© 2026 READ-X. Read. Think. Share.</span>
+                <span>Admin Dashboard</span>
+            </footer>
+        </div>
+    </main>
+</div>
+
+<!-- ANNOUNCEMENT MODAL -->
+<div class="modal-overlay" id="announcementModal" aria-hidden="true">
+    <div class="modal-card">
+        <div class="modal-heading">
+            <div>
+                <span class="section-eyebrow">WEBSITE UPDATE</span>
+                <h2 id="announcementFormTitle">Add announcement</h2>
+            </div>
+            <button class="modal-close" type="button" id="closeAnnouncement" aria-label="Close">×</button>
+        </div>
+
+        <form id="announcementForm">
+            <input type="hidden" id="announcementId">
+
+            <label for="announcementTitle">Announcement title</label>
+            <input id="announcementTitle" type="text" maxlength="150" placeholder="Enter announcement title" required>
+
+            <label for="announcementMessage">Message</label>
+            <textarea id="announcementMessage" rows="4" maxlength="2000" placeholder="Write your announcement..." required></textarea>
+
+            <label for="announcementImage">Photo (optional)</label>
+            <input id="announcementImage" type="file" accept="image/png,image/jpeg,image/webp">
+
+            <div class="image-preview" id="announcementImagePreview" hidden>
+                <img id="announcementPreviewImage" alt="Announcement preview">
+                <button type="button" class="text-action" id="removeAnnouncementImage">Remove photo</button>
+            </div>
+
+            <label for="announcementStatus">Status</label>
+            <select id="announcementStatus">
+                <option value="draft">Save as draft</option>
+                <option value="published">Publish now</option>
+            </select>
+
+            <p class="form-message" id="announcementMessageStatus" role="status"></p>
+
+            <div class="modal-actions">
+                <button type="button" class="secondary-button" id="cancelAnnouncement">Cancel</button>
+                <button type="submit" class="primary-button" id="saveAnnouncement">Save announcement</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- ADVERTISEMENT MODAL -->
+<div class="modal-overlay" id="advertisementModal" aria-hidden="true">
+    <div class="modal-card">
+        <div class="modal-heading">
+            <div>
+                <span class="section-eyebrow">BRAND PARTNER</span>
+                <h2 id="advertisementFormTitle">Add advertisement</h2>
+            </div>
+            <button class="modal-close" type="button" id="closeAdvertisement" aria-label="Close">×</button>
+        </div>
+
+        <form id="advertisementForm">
+            <input type="hidden" id="advertisementId">
+
+            <label for="advertisementBrand">Brand name</label>
+            <input id="advertisementBrand" type="text" maxlength="120" placeholder="Enter brand name" required>
+
+            <label for="advertisementDescription">Short description</label>
+            <textarea id="advertisementDescription" rows="3" maxlength="500" placeholder="Write a short description..."></textarea>
+
+            <label for="advertisementImage">Brand photo or logo</label>
+            <input id="advertisementImage" type="file" accept="image/png,image/jpeg,image/webp">
+
+            <div class="image-preview" id="advertisementImagePreview" hidden>
+                <img id="advertisementPreviewImage" alt="Advertisement preview">
+                <button type="button" class="text-action" id="removeAdvertisementImage">Remove photo</button>
+            </div>
+
+            <label for="advertisementStatus">Status</label>
+            <select id="advertisementStatus">
+                <option value="true">Active</option>
+                <option value="false">Inactive</option>
+            </select>
+
+            <p class="form-message" id="advertisementMessageStatus" role="status"></p>
+
+            <div class="modal-actions">
+                <button type="button" class="secondary-button" id="cancelAdvertisement">Cancel</button>
+                <button type="submit" class="primary-button" id="saveAdvertisement">Save advertisement</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="../supabase.js"></script>
+<script src="./dashboard.js"></script>
+</body>
+</html>

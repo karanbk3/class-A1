@@ -1,0 +1,411 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="READ-X — Read. Think. Share.">
+
+    <title>READ-X | Read. Think. Share.</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Your CSS file -->
+    <link rel="stylesheet" href="./home.css">
+</head>
+
+<body>
+
+    <!-- Background decoration -->
+    <div class="background-glow glow-one"></div>
+    <div class="background-glow glow-two"></div>
+    <div class="background-glow glow-three"></div>
+
+
+    <!-- HEADER -->
+    <header class="header">
+
+        <a href="home.html" class="logo">
+            <span class="logo-icon">R</span>
+            <span>READ<span class="logo-x">-X</span></span>
+        </a>
+
+         <a href="admin.html" class="nav-item">
+            <span class="nav-icon">↗</span>
+            <span class="nav-label">Share</span>
+        </a>
+
+    </header>
+
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero section-container">
+
+            <div class="hero-content">
+
+                <span class="eyebrow">
+                    <span class="status-dot"></span>
+                    A SPACE FOR MEANINGFUL IDEAS
+                </span>
+
+                <h1>
+                    Read more.<br>
+                    Think deeper.<br>
+                    <span class="gradient-text">Share freely.</span>
+                </h1>
+
+                <p class="hero-description">
+                    Discover stories, thoughts, knowledge and creativity.
+                    A place where everyone has something meaningful to share.
+                </p>
+
+                <div class="hero-actions">
+
+                    <a href="read.html" class="primary-button">
+                        Explore Publications <span>↗</span>
+                    </a>
+
+                    <a href="share.html" class="secondary-button">
+                        Share Your Ideas
+                    </a>
+
+                </div>
+
+                <div class="hero-note">
+                    <span>✦</span>
+                    Open to everyone. No account required.
+                </div>
+
+            </div>
+
+
+            <!-- HERO GLASS CARD -->
+            <div class="hero-visual">
+
+                <div class="floating-card card-back">
+                    <span class="mini-label">A THOUGHT</span>
+                    <p>Every idea begins somewhere.</p>
+                </div>
+
+                <div class="hero-glass-card">
+
+                    <div class="visual-top">
+                        <span class="visual-symbol">✳</span>
+                        <span class="visual-tag">READ-X COLLECTION</span>
+                    </div>
+
+                    <div class="visual-book">
+                        <span>READ</span>
+                        <strong>THE<br>WORLD<br>DIFFERENTLY.</strong>
+                        <small>READ · THINK · SHARE</small>
+                    </div>
+
+                    <div class="visual-bottom">
+                        <span>Ideas matter.</span>
+                        <span>01 / 01</span>
+                    </div>
+
+                </div>
+
+                <div class="floating-card card-front">
+                    <span>✦</span>
+
+                    <div>
+                        <strong>Your voice matters.</strong>
+                        <small>Share something meaningful.</small>
+                    </div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ABOUT SECTION -->
+        <section class="section-container content-section" id="about">
+
+            <div class="section-heading">
+
+                <span class="eyebrow">GET TO KNOW US</span>
+
+                <h2>
+                    A little space for
+                    <span class="gradient-text">big ideas.</span>
+                </h2>
+
+            </div>
+
+
+            <div class="about-card glass-card">
+
+                <div class="about-icon">✧</div>
+
+                <div class="about-content">
+
+                    <h3>What is READ-X?</h3>
+
+                    <p>
+                        READ-X is a public platform where people can discover
+                        and share stories, poetry, articles, knowledge and
+                        creative expressions.
+                    </p>
+
+                    <p>
+                        We believe meaningful ideas deserve a place to be read
+                        and shared.
+                    </p>
+
+                    <a href="about.html" class="text-link">
+                        Learn more about us →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ANNOUNCEMENTS SECTION -->
+        <section class="section-container content-section">
+
+            <div class="section-heading heading-row">
+
+                <div>
+                    <span class="eyebrow">STAY UPDATED</span>
+
+                    <h2>
+                        Latest
+                        <span class="gradient-text">announcements.</span>
+                    </h2>
+                </div>
+
+                <a href="announcements.html" class="text-link">
+                    View all →
+                </a>
+
+            </div>
+
+
+            <!-- JavaScript displays admin announcements here -->
+            <div class="announcement-list" id="announcementList">
+
+                <p class="loading-message">
+                    Loading announcements...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- ADVERTISEMENTS SECTION -->
+        <section class="section-container content-section">
+
+            <div class="section-heading heading-row">
+
+                <div>
+                    <span class="eyebrow">OUR PARTNERS</span>
+
+                    <h2>
+                        Discover
+                        <span class="gradient-text">brands.</span>
+                    </h2>
+                </div>
+
+                <span class="sponsored-label">SPONSORED</span>
+
+            </div>
+
+
+            <!-- JavaScript displays admin advertisements here -->
+            <div class="advertisement-grid" id="advertisementList">
+
+                <p class="loading-message">
+                    Loading advertisements...
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- FEATURED PUBLICATIONS -->
+        <section class="section-container content-section">
+
+            <div class="section-heading heading-row">
+
+                <div>
+                    <span class="eyebrow">EXPLORE SOMETHING NEW</span>
+
+                    <h2>
+                        Featured
+                        <span class="gradient-text">publications.</span>
+                    </h2>
+                </div>
+
+                <a href="read.html" class="text-link">
+                    Explore all →
+                </a>
+
+            </div>
+
+
+            <div class="publication-grid">
+
+                <article class="publication-card glass-card">
+
+                    <div class="publication-art art-one">
+                        <span>01</span>
+                        <strong>THOUGHTS<br>IN WORDS.</strong>
+                    </div>
+
+                    <div class="publication-info">
+                        <span class="category-label">POETRY</span>
+
+                        <h3>The beauty of simple thoughts</h3>
+
+                        <p>
+                            Discover words that express meaningful ideas.
+                        </p>
+
+                        <span class="author-name">READ-X COLLECTION</span>
+                    </div>
+
+                </article>
+
+
+                <article class="publication-card glass-card">
+
+                    <div class="publication-art art-two">
+                        <span>02</span>
+                        <strong>NEW<br>PERSPECTIVES.</strong>
+                    </div>
+
+                    <div class="publication-info">
+                        <span class="category-label">ARTICLES</span>
+
+                        <h3>Look at things differently</h3>
+
+                        <p>
+                            Explore new perspectives and interesting ideas.
+                        </p>
+
+                        <span class="author-name">READ-X COLLECTION</span>
+                    </div>
+
+                </article>
+
+
+                <article class="publication-card glass-card">
+
+                    <div class="publication-art art-three">
+                        <span>03</span>
+                        <strong>LEARN<br>SOMETHING.</strong>
+                    </div>
+
+                    <div class="publication-info">
+                        <span class="category-label">KNOWLEDGE</span>
+
+                        <h3>Curiosity opens new doors</h3>
+
+                        <p>
+                            Discover knowledge and keep learning.
+                        </p>
+
+                        <span class="author-name">READ-X COLLECTION</span>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p class="demo-note">
+                These are sample publication cards. Real publications will
+                appear after connecting the database.
+            </p>
+
+        </section>
+
+
+        <!-- SHARE INVITATION -->
+        <section class="section-container content-section">
+
+            <div class="closing-card">
+
+                <span class="eyebrow">YOUR IDEAS BELONG HERE</span>
+
+                <h2>
+                    Have something<br>
+                    <span class="gradient-text">worth sharing?</span>
+                </h2>
+
+                <p>
+                    Your story, knowledge or creativity could inspire someone.
+                </p>
+
+                <a href="share.html" class="primary-button">
+                    Share Your Work ↗
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="footer section-container">
+
+        <a href="home.html" class="logo">
+            <span class="logo-icon">R</span>
+            <span>READ<span class="logo-x">-X</span></span>
+        </a>
+
+        <p>Read. Think. Share.</p>
+
+        <div class="footer-links">
+            <a href="about.html">About</a>
+            <a href="read.html">Read</a>
+            <a href="share.html">Share</a>
+        </div>
+
+        <span class="copyright">
+            © <span id="current-year"></span> READ-X. All rights reserved.
+        </span>
+
+    </footer>
+
+
+    <!-- FLOATING GLASS NAVIGATION -->
+    <nav class="floating-nav" id="floatingNav" aria-label="Main navigation">
+
+        <a href="home.html" class="nav-item active" aria-current="page">
+            <span class="nav-icon">⌂</span>
+            <span class="nav-label">Home</span>
+        </a>
+
+        <a href="read.html" class="nav-item">
+            <span class="nav-icon">▤</span>
+            <span class="nav-label">Read</span>
+        </a>
+
+        <a href="share.html" class="nav-item">
+            <span class="nav-icon">↗</span>
+            <span class="nav-label">Share</span>
+        </a>
+
+    </nav>
+
+
+    <!-- Your JavaScript file -->
+    <script src="./home.js"></script>
+
+</body>
+</html>
